@@ -96,19 +96,19 @@
 
 
 
-  <meta name="description" content="学习进度 2.3.1 程序计数器是一块较小的内存空间，它可以看作是当前线程所执行的字节码的行号指示器。每条线程都有一个独立的程序计数器，所以程序计数器是线程私有的内存。此内存区是唯一一个在java虚拟机中没有规定任何OutOfMemoryError情况的区域。 JAVA虚拟机栈描述的是Java方法执行的内存模型：每个方法在执行的同时都会创建一个栈帧（Stack Frame） 用于存储局部变量表、操">
+  <meta name="description" content="第二章 JVM内存管理机制程序计数器是一块较小的内存空间，它可以看作是当前线程所执行的字节码的行号指示器。每条线程都有一个独立的程序计数器，所以程序计数器是线程私有的内存。此内存区是唯一一个在java虚拟机中没有规定任何OutOfMemoryError情况的区域。 JAVA虚拟机栈描述的是Java方法执行的内存模型：每个方法在执行的同时都会创建一个栈帧（Stack Frame） 用于存储局部变量表">
 <meta name="keywords" content="JVM,学习笔记">
 <meta property="og:type" content="article">
 <meta property="og:title" content="深入理解JAVA虚拟机学习笔记（一）">
 <meta property="og:url" content="https://why66666.github.io/2019/03/02/理解JAVA虚拟机学习笔记（一）/index.html">
 <meta property="og:site_name" content="Why66&#39;s Blog">
-<meta property="og:description" content="学习进度 2.3.1 程序计数器是一块较小的内存空间，它可以看作是当前线程所执行的字节码的行号指示器。每条线程都有一个独立的程序计数器，所以程序计数器是线程私有的内存。此内存区是唯一一个在java虚拟机中没有规定任何OutOfMemoryError情况的区域。 JAVA虚拟机栈描述的是Java方法执行的内存模型：每个方法在执行的同时都会创建一个栈帧（Stack Frame） 用于存储局部变量表、操">
+<meta property="og:description" content="第二章 JVM内存管理机制程序计数器是一块较小的内存空间，它可以看作是当前线程所执行的字节码的行号指示器。每条线程都有一个独立的程序计数器，所以程序计数器是线程私有的内存。此内存区是唯一一个在java虚拟机中没有规定任何OutOfMemoryError情况的区域。 JAVA虚拟机栈描述的是Java方法执行的内存模型：每个方法在执行的同时都会创建一个栈帧（Stack Frame） 用于存储局部变量表">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://why66666.github.io/images/pasted-0.png">
-<meta property="og:updated_time" content="2019-03-02T05:57:47.930Z">
+<meta property="og:updated_time" content="2019-03-02T07:42:55.517Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="深入理解JAVA虚拟机学习笔记（一）">
-<meta name="twitter:description" content="学习进度 2.3.1 程序计数器是一块较小的内存空间，它可以看作是当前线程所执行的字节码的行号指示器。每条线程都有一个独立的程序计数器，所以程序计数器是线程私有的内存。此内存区是唯一一个在java虚拟机中没有规定任何OutOfMemoryError情况的区域。 JAVA虚拟机栈描述的是Java方法执行的内存模型：每个方法在执行的同时都会创建一个栈帧（Stack Frame） 用于存储局部变量表、操">
+<meta name="twitter:description" content="第二章 JVM内存管理机制程序计数器是一块较小的内存空间，它可以看作是当前线程所执行的字节码的行号指示器。每条线程都有一个独立的程序计数器，所以程序计数器是线程私有的内存。此内存区是唯一一个在java虚拟机中没有规定任何OutOfMemoryError情况的区域。 JAVA虚拟机栈描述的是Java方法执行的内存模型：每个方法在执行的同时都会创建一个栈帧（Stack Frame） 用于存储局部变量表">
 <meta name="twitter:image" content="https://why66666.github.io/images/pasted-0.png">
 
 
@@ -414,7 +414,7 @@
                 
               
 
-              <time title="创建时间：2019-03-02 00:08:00 / 修改时间：13:57:47" itemprop="dateCreated datePublished" datetime="2019-03-02T00:08:00+08:00">2019-03-02</time>
+              <time title="创建时间：2019-03-02 00:08:00 / 修改时间：15:42:55" itemprop="dateCreated datePublished" datetime="2019-03-02T00:08:00+08:00">2019-03-02</time>
             
 
             
@@ -490,8 +490,7 @@
       
 
       
-        <p>学习进度 2.3.1</p>
-<p><strong>程序计数器</strong>是一块较小的内存空间，它可以看作是当前线程所执行的字节码的行号指示器。每条线程都有一个独立的程序计数器，所以程序计数器是<font color="#FF0000">线程私有</font>的内存。此内存区是唯一一个在java虚拟机中没有规定任何OutOfMemoryError情况的区域。</p>
+        <h5 id="第二章-JVM内存管理机制"><a href="#第二章-JVM内存管理机制" class="headerlink" title="第二章 JVM内存管理机制"></a>第二章 JVM内存管理机制</h5><p><strong>程序计数器</strong>是一块较小的内存空间，它可以看作是当前线程所执行的字节码的行号指示器。每条线程都有一个独立的程序计数器，所以程序计数器是<font color="#FF0000">线程私有</font>的内存。此内存区是唯一一个在java虚拟机中没有规定任何OutOfMemoryError情况的区域。</p>
 <p><strong>JAVA虚拟机栈</strong>描述的是Java方法执行的内存模型：每个方法在执行的同时都会创建一个栈帧（Stack Frame） <font color="#0000dd">用于存储局部变量表、操作数栈、动态链接、方法接口等信息</font>。虚拟机栈也是<font color="#FF0000">线程私有</font>的。Java虚拟机栈可以动态拓展，也可以固定长度，如果无法申请到足够的内存，就会抛出OutOfMemoryError。如果线程请求的线程深度大于虚拟机所允许的深度则会抛出StackOverflowError（递归调用易出现）。</p>
 <font size="2"><em>局部变量表存放了编译器可知的各种基本数据类型（boolean、byte、char、short、int、float、long、double）、对象引用（reference类型，指向对象的指针）和returnAddress类型（指向一条字节码指令的地址）。<br>局部变量空间单位（Slot），64位长的long和double占用两个Slot，其余占用1个Slot。</em></font>
 
@@ -552,6 +551,10 @@
 
           <div class="post-nav-prev post-nav-item">
             
+              <a href="/2019/03/02/理解JAVA虚拟机学习笔记（二）/" rel="prev" title="深入理解JAVA虚拟机学习笔记（二）">
+                深入理解JAVA虚拟机学习笔记（二） <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
       
@@ -599,8 +602,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -617,7 +629,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">2</span>
+                    <span class="site-state-item-count">4</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -715,6 +727,23 @@
         </div>
       </div>
 
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#第二章-JVM内存管理机制"><span class="nav-number">1.</span> <span class="nav-text">第二章 JVM内存管理机制</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
       
 
       
