@@ -24,6 +24,13 @@
 
 
 
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link rel="stylesheet" href="/lib/pace/pace-theme-mac-osx.min.css?v=1.0.2">
+
 
 
 
@@ -94,6 +101,18 @@
   
 
 
+
+
+<script>
+    (function(){
+        if(''){
+            if (prompt('请输入文章密码') !== ''){
+                alert('密码错误！');
+                history.back();
+            }
+        }
+    })();
+</script>
 
 
   <meta name="description" content="第三章 垃圾收集器与内存分配策略垃圾回收算法标记清除算法首先标记要回收的对象，标记完成后统一回收被标记的对象。缺点：1.效率低。2.会产生大量不连续的内存碎片。 复制算法它将内存按容量划分为大小相等的两块，每次只使用其中的一块。当这一块内存用完了，就将存活着的对象复制到另外一块上面，然后再把已使用过的内存空间一次清理掉。 缺点很明显，内存空间比原来少了一半。 JAVA虚拟机就是用这张算法回收新生代">
@@ -561,7 +580,6 @@
       <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
     </div>
   </div>
-
   <aside id="sidebar" class="sidebar">
     
     <div class="sidebar-inner">
@@ -710,6 +728,7 @@
 
           </div>
         </div>
+
       <!--/noindex-->
       
 
@@ -717,6 +736,10 @@
 
     </div>
   </aside>
+  <div id="music163player">
+    <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="110" src="//music.163.com/outchain/player?type=0&id=2220282498&auto=1&height=90"></iframe>
+    
+</div>
 
 
         

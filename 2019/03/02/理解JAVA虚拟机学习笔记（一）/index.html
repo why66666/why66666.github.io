@@ -24,6 +24,13 @@
 
 
 
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link rel="stylesheet" href="/lib/pace/pace-theme-mac-osx.min.css?v=1.0.2">
+
 
 
 
@@ -94,6 +101,18 @@
   
 
 
+
+
+<script>
+    (function(){
+        if(''){
+            if (prompt('请输入文章密码') !== ''){
+                alert('密码错误！');
+                history.back();
+            }
+        }
+    })();
+</script>
 
 
   <meta name="description" content="第二章 JVM内存管理机制程序计数器是一块较小的内存空间，它可以看作是当前线程所执行的字节码的行号指示器。每条线程都有一个独立的程序计数器，所以程序计数器是线程私有的内存。此内存区是唯一一个在java虚拟机中没有规定任何OutOfMemoryError情况的区域。 JAVA虚拟机栈描述的是Java方法执行的内存模型：每个方法在执行的同时都会创建一个栈帧（Stack Frame） 用于存储局部变量表">
@@ -594,7 +613,6 @@
       <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
     </div>
   </div>
-
   <aside id="sidebar" class="sidebar">
     
     <div class="sidebar-inner">
@@ -743,6 +761,7 @@
 
           </div>
         </div>
+
       <!--/noindex-->
       
 
@@ -750,6 +769,10 @@
 
     </div>
   </aside>
+  <div id="music163player">
+    <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="110" src="//music.163.com/outchain/player?type=0&id=2220282498&auto=1&height=90"></iframe>
+    
+</div>
 
 
         
