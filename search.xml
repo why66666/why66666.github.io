@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title><![CDATA[深入理解JAVA虚拟机学习笔记（一）]]></title>
+    <url>%2F2019%2F03%2F02%2F%E7%90%86%E8%A7%A3JAVA%E8%99%9A%E6%8B%9F%E6%9C%BA%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%80%EF%BC%89%2F</url>
+    <content type="text"><![CDATA[学习进度 2.3.1 程序计数器是一块较小的内存空间，它可以看作是当前线程所执行的字节码的行号指示器。每条线程都有一个独立的程序计数器，所以程序计数器是线程私有的内存。此内存区是唯一一个在java虚拟机中没有规定任何OutOfMemoryError情况的区域。 JAVA虚拟机栈描述的是Java方法执行的内存模型：每个方法在执行的同时都会创建一个栈帧（Stack Frame） 用于存储局部变量表、操作数栈、动态链接、方法接口等信息。虚拟机栈也是线程私有的。Java虚拟机栈可以动态拓展，也可以固定长度，如果无法申请到足够的内存，就会抛出OutOfMemoryError。如果线程请求的线程深度大于虚拟机所允许的深度则会抛出StackOverflowError（递归调用易出现）。 局部变量表存放了编译器可知的各种基本数据类型（boolean、byte、char、short、int、float、long、double）、对象引用（reference类型，指向对象的指针）和returnAddress类型（指向一条字节码指令的地址）。局部变量空间单位（Slot），64位长的long和double占用两个Slot，其余占用1个Slot。 本地方法栈服务于Native方法。与虚拟机栈相似。 Java堆是Java虚拟机所管理的内存中最大的一块。Java堆是线程共享的。在虚拟机启动时创建。存放对象实例，几乎所有对象实例都在这里分配内存。Java堆是垃圾收集器管理的主要区域，所以也叫GC堆。垃圾回收机制大多采用分代收集算法，所以Java堆还可以细分为新生代、老生代，再细致分为Eden区、From Survivor区、To Survivor区等。Java堆也是可扩展的，无法扩展时抛出OutOfMemoryError。 方法区用于存储已被虚拟机加载的类信息、常量、静态变量、即时编译器编译后的代码等数据。是线程共享的内存区域。 运行时常量池是方法区的一部分，用于存放编译期生成的变量（类加载后进入方法区的变量）]]></content>
+      <categories>
+        <category>学习笔记</category>
+      </categories>
+      <tags>
+        <tag>JVM</tag>
+        <tag>学习笔记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[博客编写]]></title>
+    <url>%2F2019%2F02%2F28%2F111%2F</url>
+    <content type="text"><![CDATA[评论插件：valine（数据库LeanCloud，账号163邮箱） 分类添加：在文章头部指定一个categories属性。 标签添加：在文章头部指定一个tags属性。 Markdown语法参考 代码示例：123public class hello&#123; &#125;]]></content>
+      <categories>
+        <category>教程</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
+      </tags>
+  </entry>
+</search>
