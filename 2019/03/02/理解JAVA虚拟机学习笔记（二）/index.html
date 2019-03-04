@@ -116,13 +116,14 @@
 
 
   <meta name="description" content="第三章 垃圾收集器与内存分配策略判断对象需要回收的算法引用计数法给对象添加一个引用技术器，每当有一个地方引用它时，计数器值就加1；当引用失效时，计数器值就减1；任何时刻计数器为0的对象都是不能被再次使用的。 Java虚拟机没有选用引用计数算法来管理内存的，原因是它很难解决相互循环引用的问题。   1234例如：objA.instance = objB;objB.instance = objA;由于">
+<meta name="keywords" content="JVM,学习笔记">
 <meta property="og:type" content="article">
 <meta property="og:title" content="深入理解JAVA虚拟机学习笔记（二）">
 <meta property="og:url" content="https://why66666.github.io/2019/03/02/理解JAVA虚拟机学习笔记（二）/index.html">
 <meta property="og:site_name" content="Why66&#39;s Blog">
 <meta property="og:description" content="第三章 垃圾收集器与内存分配策略判断对象需要回收的算法引用计数法给对象添加一个引用技术器，每当有一个地方引用它时，计数器值就加1；当引用失效时，计数器值就减1；任何时刻计数器为0的对象都是不能被再次使用的。 Java虚拟机没有选用引用计数算法来管理内存的，原因是它很难解决相互循环引用的问题。   1234例如：objA.instance = objB;objB.instance = objA;由于">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-03-02T09:51:09.942Z">
+<meta property="og:updated_time" content="2019-03-04T15:40:07.683Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="深入理解JAVA虚拟机学习笔记（二）">
 <meta name="twitter:description" content="第三章 垃圾收集器与内存分配策略判断对象需要回收的算法引用计数法给对象添加一个引用技术器，每当有一个地方引用它时，计数器值就加1；当引用失效时，计数器值就减1；任何时刻计数器为0的对象都是不能被再次使用的。 Java虚拟机没有选用引用计数算法来管理内存的，原因是它很难解决相互循环引用的问题。   1234例如：objA.instance = objB;objB.instance = objA;由于">
@@ -430,16 +431,46 @@
                 
               
 
-              <time title="创建时间：2019-03-02 15:42:18 / 修改时间：17:51:09" itemprop="dateCreated datePublished" datetime="2019-03-02T15:42:18+08:00">2019-03-02</time>
+              <time title="创建时间：2019-03-02 15:42:18" itemprop="dateCreated datePublished" datetime="2019-03-02T15:42:18+08:00">2019-03-02</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-03-04 23:40:07" itemprop="dateModified" datetime="2019-03-04T23:40:07+08:00">2019-03-04</time>
               
             
           </span>
 
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/学习笔记/" itemprop="url" rel="index"><span itemprop="name">学习笔记</span></a></span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -526,6 +557,14 @@
     
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/JVM/" rel="tag"># JVM</a>
+          
+            <a href="/tags/学习笔记/" rel="tag"># 学习笔记</a>
+          
+        </div>
       
 
       
@@ -623,7 +662,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">6</span>
+                    <span class="site-state-item-count">8</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -659,7 +698,19 @@
                     
                       
                     
-                    <span class="site-state-item-count">3</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">9</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
