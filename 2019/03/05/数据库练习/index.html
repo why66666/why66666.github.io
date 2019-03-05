@@ -1,0 +1,1346 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link rel="stylesheet" href="/lib/pace/pace-theme-mac-osx.min.css?v=1.0.2">
+
+
+
+
+
+
+
+
+
+
+
+  <meta name="baidu-site-verification" content="joBm5rAxCX">
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=7.0.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.0.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.0.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.0.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.0.0" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '7.0.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+<script>
+    (function(){
+        if(''){
+            if (prompt('请输入文章密码') !== ''){
+                alert('密码错误！');
+                history.back();
+            }
+        }
+    })();
+</script>
+
+
+  <meta name="description" content="Student(Sid,Sname,Sage,Ssex)学生表Sid：学号Sname：学生姓名Sage：学生年龄Ssex：学生性别Course(Cid,Cname,T#)课程表Cid：课程编号Cname：课程名称Tid：教师编号SC(Sid,Cid,score)成绩表Sid：学号Cid：课程编号score：成绩Teacher(Tid,Tname)教师表Tid：教师编号：Tname：教师名字 问题：">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数据库练习">
+<meta property="og:url" content="https://why66666.github.io/2019/03/05/数据库练习/index.html">
+<meta property="og:site_name" content="Why66&#39;s Blog">
+<meta property="og:description" content="Student(Sid,Sname,Sage,Ssex)学生表Sid：学号Sname：学生姓名Sage：学生年龄Ssex：学生性别Course(Cid,Cname,T#)课程表Cid：课程编号Cname：课程名称Tid：教师编号SC(Sid,Cid,score)成绩表Sid：学号Cid：课程编号score：成绩Teacher(Tid,Tname)教师表Tid：教师编号：Tname：教师名字 问题：">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-03-05T03:35:56.498Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="数据库练习">
+<meta name="twitter:description" content="Student(Sid,Sname,Sage,Ssex)学生表Sid：学号Sname：学生姓名Sage：学生年龄Ssex：学生性别Course(Cid,Cname,T#)课程表Cid：课程编号Cname：课程名称Tid：教师编号SC(Sid,Cid,score)成绩表Sid：学号Cid：课程编号score：成绩Teacher(Tid,Tname)教师表Tid：教师编号：Tname：教师名字 问题：">
+
+
+
+
+
+
+  <link rel="canonical" href="https://why66666.github.io/2019/03/05/数据库练习/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>数据库练习 | Why66's Blog</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Why66's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://why66666.github.io/2019/03/05/数据库练习/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Why66">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Why66's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">数据库练习
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-03-05 11:28:14 / 修改时间：11:35:56" itemprop="dateCreated datePublished" datetime="2019-03-05T11:28:14+08:00">2019-03-05</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <a href="/2019/03/05/数据库练习/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2019/03/05/数据库练习/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="post-meta-item-icon">
+            <i class="fa fa-eye"></i>
+             阅读次数： 
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>Student(Sid,Sname,Sage,Ssex)学生表<br>Sid：学号<br>Sname：学生姓名<br>Sage：学生年龄<br>Ssex：学生性别<br>Course(Cid,Cname,T#)课程表<br>Cid：课程编号<br>Cname：课程名称<br>Tid：教师编号<br>SC(Sid,Cid,score)成绩表<br>Sid：学号<br>Cid：课程编号<br>score：成绩<br>Teacher(Tid,Tname)教师表<br>Tid：教师编号：<br>Tname：教师名字</p>
+<h4 id="问题："><a href="#问题：" class="headerlink" title="问题："></a>问题：</h4><p>1、查询“001”课程比“002”课程成绩高的所有学生的学号<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">select a.sid from </span><br><span class="line">(select sid,score from sc where cid=&apos;001&apos;)a,</span><br><span class="line">(select sid,score from sc where cid=&apos;002&apos;)b </span><br><span class="line">where a.sid = b.sid and a.score&gt;b.score;</span><br></pre></td></tr></table></figure></p>
+<p>2、查询平均成绩大于60分的同学的学号和平均成绩<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">select sid,avg(score) from sc</span><br><span class="line">group by sid </span><br><span class="line">having avg(score)&gt;60;</span><br></pre></td></tr></table></figure></p>
+<p>3、查询所有同学的学号、姓名、选课数、总成绩<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">select s.sid,s.sname,count_cid as 选课数, </span><br><span class="line">sum_score  as 总成绩</span><br><span class="line">from student s</span><br><span class="line">left join </span><br><span class="line">(select sid,count(cid) as count_cid,sum(score) as sum_score </span><br><span class="line">from sc group by sid )sc</span><br><span class="line">on s.sid = sc.sid;</span><br></pre></td></tr></table></figure></p>
+<p>4、查询姓‘李’的老师的个数：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">select count(tname)</span><br><span class="line">from teacher </span><br><span class="line">where tname like &apos;李%&apos;;</span><br></pre></td></tr></table></figure></p>
+<p>5、查询没有学过“叶平”老师可的同学的学号、姓名：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">select s.sid,s.sname </span><br><span class="line">from student as s </span><br><span class="line">where s.sid not in (</span><br><span class="line">    select DISTINCT sid </span><br><span class="line">    from sc as sc </span><br><span class="line">    where sc.cid in (</span><br><span class="line">        select cid </span><br><span class="line">        from course as c </span><br><span class="line">        left join teacher as t on c.tid = t.tid </span><br><span class="line">        where t.tname = &apos;叶平&apos;)</span><br><span class="line">);</span><br></pre></td></tr></table></figure></p>
+<p>6、查询学过“叶平”老师所教的所有课的同学的学号、姓名：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">select s.sid,s.sname </span><br><span class="line">from student as s </span><br><span class="line">where s.sid in (</span><br><span class="line">    select distinct sc.sid </span><br><span class="line">  from sc as sc </span><br><span class="line">  where sc.cid in (</span><br><span class="line">    select cid </span><br><span class="line">    from course as c </span><br><span class="line">    left join teacher as t on c.tid = t.tid </span><br><span class="line">    where t.tname = &apos;叶平&apos;)</span><br><span class="line">        group by sc.sid </span><br><span class="line">    HAVING count(cid)=</span><br><span class="line">    (select count(cid) </span><br><span class="line">     from course as c left join teacher as t on c.tid = t.tid </span><br><span class="line">     where t.tname = &apos;叶平&apos;)</span><br><span class="line">);</span><br></pre></td></tr></table></figure></p>
+<p>7、查询学过“011”并且也学过编号“002”课程的同学的学号、姓名：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">SELECT s.sid,s.sname </span><br><span class="line">from student as s </span><br><span class="line">left join sc as sc on s.sid = sc.sid</span><br><span class="line">where sc.cid = &apos;001&apos;</span><br><span class="line">and EXISTS(</span><br><span class="line">  select * from sc as sc_2 </span><br><span class="line">  where sc.sid = sc_2.sid </span><br><span class="line">  and sc_2.cid=&apos;002&apos;);</span><br><span class="line"></span><br><span class="line">select s.sid,s.sname</span><br><span class="line">from student as s </span><br><span class="line">left join sc as sc </span><br><span class="line">on sc.sid = s.sid</span><br><span class="line">where sc.cid = &apos;001&apos;</span><br><span class="line">and s.sid in (</span><br><span class="line">  select sid from sc as sc_2 </span><br><span class="line">  where sc_2.cid=&apos;002&apos; </span><br><span class="line">  and sc_2.sid = sc.sid);</span><br></pre></td></tr></table></figure></p>
+<p>8、查询课程编号“002”的成绩比课程编号“001”课程低的所有同学的学号、姓名：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">select sid,sname</span><br><span class="line">from (select student.sid,student.sname,score,</span><br><span class="line">     (select score from sc as sc_2 </span><br><span class="line">      where sc_2.sid = student.sid </span><br><span class="line">      and sc_2.cid = &apos;002&apos;) as score2 </span><br><span class="line">      from student,sc </span><br><span class="line">      where student.sid=sc.sid and cid = &apos;001&apos;) s_2</span><br><span class="line">where score2&lt;score;</span><br></pre></td></tr></table></figure></p>
+<p>9、查询所有课程成绩小于60的同学的学号、姓名：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">select sid,sname</span><br><span class="line">from student</span><br><span class="line">where sid not in </span><br><span class="line">(select s.sid </span><br><span class="line">from student s,sc </span><br><span class="line">where s.sid=sc.sid and score&gt;60 );</span><br><span class="line"></span><br><span class="line">select sid,sname</span><br><span class="line">from student s</span><br><span class="line">where not EXISTS (</span><br><span class="line">select s.sid from sc </span><br><span class="line">where sc.sid = s.sid and sc.score&gt;60);</span><br></pre></td></tr></table></figure></p>
+<p>10、查询没有学全所有课的同学的学号、姓名：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">select s.sid,s.sname</span><br><span class="line">from student s ,sc sc </span><br><span class="line">where s.sid = sc.sid</span><br><span class="line">group by s.sid,s.sname</span><br><span class="line">having count(sc.cid)&lt;(</span><br><span class="line">select count(cid) </span><br><span class="line">from course);</span><br><span class="line"></span><br><span class="line">select s.sid,s.sname</span><br><span class="line">from student s </span><br><span class="line">right join sc sc on s.sid = sc.sid</span><br><span class="line">group by s.sid,s.sname</span><br><span class="line">having count(sc.cid)&lt;</span><br><span class="line">(select count(cid) from course);</span><br></pre></td></tr></table></figure></p>
+<p>11、查询至少有一门课与学号为“1001”同学所学相同的同学的学号和姓名：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">select student.sid,sname</span><br><span class="line">from student,sc </span><br><span class="line">where student.sid = sc.sid</span><br><span class="line">and cid in </span><br><span class="line">(select cid from sc where sid=&apos;1001&apos;);</span><br><span class="line"></span><br><span class="line">select s.sid,s.sname</span><br><span class="line">from sc sc left join student as s</span><br><span class="line">on sc.sid = s.sid</span><br><span class="line">where sc.cid in (select cid from sc where sid=&apos;1001&apos;);</span><br><span class="line"></span><br><span class="line">select sc_1.sid,s.sname</span><br><span class="line">from sc sc_1 left join student as s</span><br><span class="line">on sc_1.sid = s.sid</span><br><span class="line">where </span><br><span class="line">exists (select sc_2.cid from sc as sc_2 </span><br><span class="line">where sc_1.cid = sc_2.cid </span><br><span class="line">and sc_2.sid = &apos;1001&apos;);</span><br></pre></td></tr></table></figure></p>
+<p>12、查询至少学过学号为“001”同学所有一门课的其他同学学号和姓名；<br>13、把“SC”表中“叶平”老师教的课的成绩都更改为此课程的平均成绩：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">update sc set score = </span><br><span class="line">(select avg(sc_2.score) from sc sc_2  </span><br><span class="line">where sc_2.cid = sc.cid)</span><br><span class="line">where cid in </span><br><span class="line">(select c.cid from course c </span><br><span class="line">left join teacher t on t.tid = c.tid </span><br><span class="line">where t.tname = &apos;叶平&apos;);</span><br></pre></td></tr></table></figure></p>
+<p>14、查询和“1002”号的同学学习的课程完全相同的其他同学学号和姓名：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">select sc_1.sid </span><br><span class="line">from (select cid from sc where sid=&apos;1002&apos;)a</span><br><span class="line">left join sc sc_1 on a.cid = sc_1.cid</span><br><span class="line">where sc_1.sid&lt;&gt;&apos;1002&apos; </span><br><span class="line">group by sc_1.sid </span><br><span class="line">having count(sc_1.cid) = </span><br><span class="line">(select count(cid) from sc where sid=&apos;1002&apos;);</span><br><span class="line"></span><br><span class="line">select a.sid,s.sname from </span><br><span class="line">(select sid,GROUP_CONCAT(cid order by cid separator &apos;,&apos;) as cid_str </span><br><span class="line">from sc where sid=&apos;1002&apos;)b,</span><br><span class="line">(select sid,GROUP_CONCAT(cid order by cid separator &apos;,&apos;) as cid_str </span><br><span class="line">from sc group by sid)a</span><br><span class="line">left join student s </span><br><span class="line">on a.sid = s.sid</span><br><span class="line">where a.cid_str = b.cid_str and a.sid&lt;&gt;&apos;1002&apos;;</span><br></pre></td></tr></table></figure></p>
+<p>15、删除学习“叶平”老师课的SC表记录：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">delete from sc WHERE</span><br><span class="line">cid in (</span><br><span class="line">select c.cid from course c </span><br><span class="line">LEFT JOIN teacher t on c.tid=t.tid </span><br><span class="line">where t.tname = &apos;叶平&apos;);</span><br></pre></td></tr></table></figure></p>
+<p>16、向SC表中插入一些记录，这些记录要求符合以下条件：没有上过编号“003”课程的同学学号、002号课的平均成绩：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">insert into sc select sid,&apos;002&apos;,</span><br><span class="line">(select avg(score) from sc where cid=&apos;0022&apos;)</span><br><span class="line">from student </span><br><span class="line">where sid not in (select sid from sc where cid=&apos;002&apos;);</span><br></pre></td></tr></table></figure></p>
+<p>17、按平均成绩从高到低显示所有学生的“数据库”、“企业管理”、“英语”三门的课程成绩，按如下形式显示：学生ID，数据库，企业管理，英语，有效课程数，有效平均分：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">select sid as 学生id,</span><br><span class="line">(SELECT score from sc </span><br><span class="line">where sc.sid = t.sid and cid=&apos;004&apos;) as 数据库,</span><br><span class="line">(select score from sc </span><br><span class="line">where sc.sid = t.sid and cid=&apos;001&apos;) as 企业管理,</span><br><span class="line">(select score from sc </span><br><span class="line">where sc.sid = t.sid and cid=&apos;015&apos;) as 英语,</span><br><span class="line">count(cid) as 有效课程数, avg(t.score) as 平均成绩</span><br><span class="line">from sc as t </span><br><span class="line">group by sid</span><br><span class="line">order by avg(t.score);</span><br></pre></td></tr></table></figure></p>
+<p>18、查询各科成绩最高和最低的分：以如下的形式显示：课程ID，最高分，最低分<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">select l.cid as 课程id,l.score as 最高分,</span><br><span class="line">r.score as 最低分</span><br><span class="line">from sc l,sc r</span><br><span class="line">where l.cid = r.cid</span><br><span class="line">and l.score = </span><br><span class="line">(select max(t.score) from sc t </span><br><span class="line">where l.cid = t.cid group by t.cid)</span><br><span class="line">and r.score = (select min(t.score) from sc t </span><br><span class="line">where r.cid = t.cid group by t.cid)</span><br><span class="line">order by l.cid;</span><br><span class="line"></span><br><span class="line">select cid as 课程id,max(score) as 最高分,</span><br><span class="line">min(score) as 最低分</span><br><span class="line">from sc </span><br><span class="line">group by cid;</span><br></pre></td></tr></table></figure></p>
+<p>19、按各科平均成绩从低到高和及格率的百分数从高到低顺序：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">SELECT t.cid as 课程号,</span><br><span class="line">c.cname as 课程名,</span><br><span class="line">COALESCE(avg(score),0) as 平均成绩,</span><br><span class="line">100*sum(case </span><br><span class="line">when COALESCE(score,0)&gt;=60 </span><br><span class="line">then 1 else 0 END)/count(*) as 及格百分数</span><br><span class="line">from sc t</span><br><span class="line">left join course c </span><br><span class="line">on t.cid = c.cid</span><br><span class="line">group by t.cid</span><br><span class="line">order by 100*sum(case </span><br><span class="line">when COALESCE(score,0)&gt;=60 </span><br><span class="line">then 1 else 0 END)/count(*);</span><br></pre></td></tr></table></figure></p>
+<p>20、查询如下课程平均成绩和及格率的百分数(用”1行”显示): 企业管理（001），马克思（002），OO&amp;UML （003），数据库（004）：<br>21、查询不同老师所教不同课程平均分从高到低显示：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">select t.tid as 教师id,</span><br><span class="line">t.tname as 教师姓名,</span><br><span class="line">sc.cid as 课程id,</span><br><span class="line">avg(score) as 平均成绩</span><br><span class="line">from sc as sc</span><br><span class="line">LEFT JOIN course c on sc.cid = c.cid</span><br><span class="line">left join teacher t on c.tid = t.tid</span><br><span class="line">group by sc.cid </span><br><span class="line">order by avg(sc.score) desc;</span><br></pre></td></tr></table></figure></p>
+<p>22、查询如下课程成绩第3名到第6名的学生成绩单：企业管理(001)，马克思(002)，UML(003)，数据库(004)：<br>23、统计下列各科成绩，各分数段人数：课程ID，课程名称，[100-85],[85-70],[70-60],[ 小于60] ：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">select sc.cid as 课程id,cname as 课程名称,</span><br><span class="line">sum(case when score between 85 and 100 then 1 else 0 end) as &apos;[100-85]&apos;,</span><br><span class="line">sum(case when score between 70 and 85 then 1 else 0 end) as &apos;[85-70]&apos;,</span><br><span class="line">sum(case when score between 60 and 70 then 1 else 0 end) as &apos;[70-60]&apos;,</span><br><span class="line">sum(case when score&lt;60 then 1 else 0 end) as &apos;[60-0]&apos;</span><br><span class="line">from sc as sc </span><br><span class="line">left join course as c</span><br><span class="line">on sc.cid = c.cid</span><br><span class="line">group by sc.cid;</span><br></pre></td></tr></table></figure></p>
+<p>24、查询学生平均成绩及其名次：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">select 1+(select count(distinct 平均成绩) </span><br><span class="line">from (select sid,avg(score) as 平均成绩 </span><br><span class="line">from sc group by sid)t1 </span><br><span class="line">where 平均成绩&gt;t2.平均成绩) as 名次,</span><br><span class="line">sid as 学生学号,平均成绩 </span><br><span class="line">from (select sid,avg(score) 平均成绩 from sc group by sid) as t2</span><br><span class="line">order by 平均成绩 desc;</span><br></pre></td></tr></table></figure></p>
+<p>25、查询各科成绩前三名的记录（不考虑成绩并列情况）：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">select sid,cid,score</span><br><span class="line">from sc sc_1</span><br><span class="line">where (</span><br><span class="line">select count(3) from sc sc_2 </span><br><span class="line">where sc_1.cid = sc_2.cid </span><br><span class="line">and sc_2.score&gt;=sc_1.score)&lt;=2 </span><br><span class="line">order by sc_1.cid</span><br><span class="line">);</span><br></pre></td></tr></table></figure></p>
+<p>26、查询每门课程被选修的学生数：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">select cid, count(sid)</span><br><span class="line">from sc </span><br><span class="line">group by cid;</span><br></pre></td></tr></table></figure></p>
+<p>27、查询出只选修一门课程的全部学生的学号和姓名：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">select sc.sid,s.sname,</span><br><span class="line">count(sc.cid) as 课程数</span><br><span class="line">from sc as sc</span><br><span class="line">LEFT JOIN student as s</span><br><span class="line">on sc.sid = s.sid</span><br><span class="line">group by sc.sid</span><br><span class="line">having count(sc.cid)=1;</span><br></pre></td></tr></table></figure></p>
+<p>28、查询男生、女生人数：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">select count(ssex) as 男生人数</span><br><span class="line">from student</span><br><span class="line">group by ssex</span><br><span class="line">having ssex = &apos;男&apos;;</span><br><span class="line">select count(2) from student</span><br><span class="line">where ssex = &apos;女&apos;;</span><br></pre></td></tr></table></figure></p>
+<p>29、查询姓“张”的学生名单：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">select sid,sname</span><br><span class="line">from student </span><br><span class="line">where sname like &apos;张%&apos;;</span><br></pre></td></tr></table></figure></p>
+<p>30、查询同名同姓的学生名单，并统计同名人数：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">select sname,count(8)</span><br><span class="line">from student </span><br><span class="line">group by sname</span><br><span class="line">having count(8)&gt;1;</span><br></pre></td></tr></table></figure></p>
+<p>31、1981年出生的学生名单（注：student表中sage列的类型是datetime）:<br>32、查询平均成绩大于85的所有学生的学号、姓名和平均成绩：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">select s.sname,sc.sid,avg(sc.score) as 平均成绩</span><br><span class="line">from sc as sc</span><br><span class="line">left join student as s </span><br><span class="line">on sc.sid = s.sid</span><br><span class="line">group by sc.sid </span><br><span class="line">having avg(sc.score)&gt;85;</span><br></pre></td></tr></table></figure></p>
+<p>33、查询每门课程的平均成绩，结果按平均成绩升序排序，平均成绩相同时，按课程号降序排列：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">select cid,avg(score)</span><br><span class="line">from sc </span><br><span class="line">group by cid</span><br><span class="line">order by avg(score),cid desc;</span><br></pre></td></tr></table></figure></p>
+<p>34、查询课程名称为“数据库”，且分数低于60的学生名字和分数：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">select c.cname,s.sid,s.sname,sc.score</span><br><span class="line">from course c</span><br><span class="line">left join sc on sc.cid = c.cid</span><br><span class="line">LEFT JOIN student s on s.sid = sc.sid</span><br><span class="line">where c.cname = &apos;数据库&apos; and sc.score&lt;60;</span><br></pre></td></tr></table></figure></p>
+<p>35、查询所有学生的选课情况：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">select sc.sid,sc.cid,s.sname,c.cname</span><br><span class="line">from sc </span><br><span class="line">LEFT JOIN course c on sc.cid = c.cid</span><br><span class="line">left join student s on sc.sid = s.sid;</span><br></pre></td></tr></table></figure></p>
+<p>36、查询任何一门课程成绩在70分以上的姓名、课程名称和分数：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">select distinct s.sid,s.sname,sc.cid,sc.score</span><br><span class="line">from sc </span><br><span class="line">left join student s on sc.sid = s.sid</span><br><span class="line">left join course c on sc.cid = c.cid</span><br><span class="line">where sc.score&gt;70;</span><br></pre></td></tr></table></figure></p>
+<p>37、查询不及格的课程，并按课程号从大到小的排列：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">select cid</span><br><span class="line">from sc </span><br><span class="line">where score&lt;60</span><br><span class="line">ORDER BY cid;</span><br></pre></td></tr></table></figure></p>
+<p>38、查询课程编号为“003”且课程成绩在80分以上的学生的学号和姓名：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">select sc.sid,s.sname </span><br><span class="line">from sc </span><br><span class="line">left join student s on sc.sid = s.sid</span><br><span class="line">where sc.cid = &apos;003&apos; and sc.score&gt;80;</span><br></pre></td></tr></table></figure></p>
+<p>39、求选了课程的学生人数：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">select count(2) from </span><br><span class="line">(select distinct sid from sc)a;</span><br></pre></td></tr></table></figure></p>
+<p>40、查询选修“叶平”老师所授课程的学生中，成绩最高的学生姓名及其成绩：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">select s.sname,sc.score</span><br><span class="line">from sc sc </span><br><span class="line">left join student s on sc.sid = s.sid</span><br><span class="line">left join course c on sc.cid = c.cid</span><br><span class="line">left join teacher t on c.tid = t.tid</span><br><span class="line">where t.tname = &apos;叶平&apos;</span><br><span class="line">and sc.score = (</span><br><span class="line">select max(score) </span><br><span class="line">from sc sc_1 </span><br><span class="line">where sc.cid = sc_1.cid);</span><br></pre></td></tr></table></figure></p>
+<p>41、查询各个课程及相应的选修人数：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select cid,count(*) from sc group by cid;</span><br></pre></td></tr></table></figure></p>
+<p>42、查询不同课程成绩相同的学生和学号、课程号、学生成绩：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">select DISTINCT a.sid,a.cid,a.score</span><br><span class="line">from sc as a ,sc as b </span><br><span class="line">where a.score = b.score</span><br><span class="line">and a.cid &lt;&gt; b.cid;</span><br></pre></td></tr></table></figure></p>
+<p>43、查询每门课程成绩最好的前两名：<br>44、统计每门课程的学生选修人数(超过10人的课程才统计)。要求输出课程号和选修人数，查询结果按人数降序排序，若人数相同，按课程号升序排序：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">select cid as 课程号,count(8) as 选修人数</span><br><span class="line">from sc</span><br><span class="line">group by cid</span><br><span class="line">HAVING count(sid)&gt;10</span><br><span class="line">order by count(8) desc,cid;</span><br></pre></td></tr></table></figure></p>
+<p>45、检索至少选修两门课程的学生学号：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">select sid</span><br><span class="line">from sc</span><br><span class="line">group by sid</span><br><span class="line">having count(8)&gt;=2;</span><br></pre></td></tr></table></figure></p>
+<p>46、查询全部学生选修的课程和课程号和课程名：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">select cid,cname</span><br><span class="line">from course </span><br><span class="line">where cid in (select cid from sc group by cid);</span><br></pre></td></tr></table></figure></p>
+<p>47、查询没学过”叶平”老师讲授的任一门课程的学生姓名：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">select sname </span><br><span class="line">from student </span><br><span class="line">where sid not in (</span><br><span class="line">    select sid </span><br><span class="line">    from sc,course,teacher </span><br><span class="line">    where course.tid = teacher.tid and sc.cid = course.cid </span><br><span class="line">    and teacher.tname=&apos;叶平&apos;</span><br><span class="line">);</span><br></pre></td></tr></table></figure></p>
+<p>48、查询两门以上不及格课程的同学的学号以及其平均成绩：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">select sid,avg(COALESCE(score,0))</span><br><span class="line">from sc</span><br><span class="line">where sid in (</span><br><span class="line">    select sid </span><br><span class="line">    from sc </span><br><span class="line">    where score&lt;60 </span><br><span class="line">    group by sid </span><br><span class="line">    having count(8)&gt;2</span><br><span class="line">)</span><br><span class="line">group by sid;</span><br></pre></td></tr></table></figure></p>
+<p>49、检索“004”课程分数小于60，按分数降序排列的同学学号：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">select sid,score</span><br><span class="line">from sc</span><br><span class="line">where cid=&apos;004&apos;</span><br><span class="line">and score&lt;60</span><br><span class="line">order by score desc;</span><br></pre></td></tr></table></figure></p>
+<p>50、删除“002”同学的“001”课程的成绩：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">delete from sc</span><br><span class="line">where sid = &apos;002&apos;</span><br><span class="line">and cid = &apos;001&apos;;</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/03/04/SpringMVC工作原理/" rel="next" title="SpringMVC工作原理">
+                <i class="fa fa-chevron-left"></i> SpringMVC工作原理
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.gif" alt="Why66">
+            
+              <p class="site-author-name" itemprop="name">Why66</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">9</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">2</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">9</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/why66666" title="GitHub &rarr; https://github.com/why66666" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="mailto:why_519@163.com" title="E-Mail &rarr; mailto:why_519@163.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://plus.google.com/yourname" title="Google &rarr; https://plus.google.com/yourname" rel="noopener" target="_blank"><i class="fa fa-fw fa-google"></i>Google</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="110" src="//music.163.com/outchain/player?type=0&id=2220282498&auto=0&height=90"></iframe>
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#问题："><span class="nav-number">1.</span> <span class="nav-text">问题：</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Why66</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.8.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> v7.0.0</div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+
+  
+
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-eye"></i>
+    </span>
+    <span class="site-pv" title="总访问量">
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    
+    
+  
+  <script color="0,0,255" opacity="0.5" zindex="-1" count="99" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/src/utils.js?v=7.0.0"></script>
+
+  <script src="/js/src/motion.js?v=7.0.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/src/schemes/muse.js?v=7.0.0"></script>
+
+
+
+
+  
+  <script src="/js/src/scrollspy.js?v=7.0.0"></script>
+<script src="/js/src/post-details.js?v=7.0.0"></script>
+
+
+
+  
+
+
+  <script src="/js/src/bootstrap.js?v=7.0.0"></script>
+
+
+
+  
+  
+
+<script src="//cdn1.lncld.net/static/js/3.11.1/av-min.js"></script>
+
+
+
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+
+<script>
+  var GUEST = ['nick', 'mail', 'link'];
+  var guest = 'nick,mail,link';
+  guest = guest.split(',').filter(function(item) {
+    return GUEST.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#comments',
+    verify: false,
+    notify: false,
+    appId: 'B4erOy3WWmhf2hSXXmjMyB7i-gzGzoHsz',
+    appKey: 'dqrVgqLFQ5eGO5NSBgrgnePQ',
+    placeholder: 'Just go go',
+    avatar: 'mm',
+    meta: guest,
+    pageSize: '10' || 10,
+    visitor: false
+  });
+</script>
+
+
+
+
+  
+
+
+  
+
+  <script>
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url).replace(/\/{2,}/g, '/');
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x"></i></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x"></i></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+  <script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+      }
+      else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+      }
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
