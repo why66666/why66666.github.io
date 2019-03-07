@@ -103,16 +103,6 @@
 
 
 
-<script>
-    (function(){
-        if(''){
-            if (prompt('请输入文章密码') !== ''){
-                alert('密码错误！');
-                history.back();
-            }
-        }
-    })();
-</script>
 
 
   <meta name="description" content="第三章 垃圾收集器与内存分配策略判断对象需要回收的算法引用计数法给对象添加一个引用技术器，每当有一个地方引用它时，计数器值就加1；当引用失效时，计数器值就减1；任何时刻计数器为0的对象都是不能被再次使用的。 Java虚拟机没有选用引用计数算法来管理内存的，原因是它很难解决相互循环引用的问题。   1234例如：objA.instance = objB;objB.instance = objA;由于">
