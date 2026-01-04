@@ -134,6 +134,21 @@
                 }
             }
         }
+
+        // 页面加载时自动测试和从剪贴板粘贴
+        window.onload = async () => {
+            try {
+                // 尝试从剪贴板粘贴
+                await pasteFromClipboard();
+                
+                // 自动测试
+                const testInput = document.getElementById('password').value || "626452";
+                const result = await SimplePasswordEncryptor.encryptToSixDigit(testInput);
+                console.log("测试加密:", result);
+            } catch (error) {
+                console.error("测试失败:", error);
+            }
+        };
     </script>
 </body>
 </html>
